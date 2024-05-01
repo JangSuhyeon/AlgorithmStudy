@@ -1,7 +1,7 @@
 package com.codingtest;
 
 
-import com.codingtest.baekjoon.session3.*;
+import com.codingtest.baekjoon.session4.*;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.IOException;
@@ -10,7 +10,7 @@ import java.io.IOException;
 public class CodingtestApplication {
 
 	public static void main(String[] args) throws IOException {
-		회의실배정하기_035 solution = new 회의실배정하기_035();
+		미로탐색하기_027 solution = new 미로탐색하기_027();
 		solution.solution();
 	}
 
