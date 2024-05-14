@@ -24,16 +24,17 @@ public class 랜선자르기_1654 {
         // 3. 이진 탐색
         int left = 1;
         int right = lan[K - 1];
-        int count = 0;
+        int count, mid;
         while (left <= right) {
-            int mid = (left + right) / 2;
+            count = 0;
+            mid = (left + right) / 2;
 
             for (int i = 0; i < K; i++) {
                 count += lan[i] / mid;
             }
 
-            if (count >= N) left = mid + 1;
-            else right = mid - 1;
+            if(count<N) right = mid-1;
+            else left = mid+1;
         }
 
         // F. 출력
