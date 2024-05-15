@@ -11,39 +11,21 @@ public class 설탕배달_2839 {
 
         // 0. 변수 선언
         int result = 0;
-        int result5 = 0;
-        int result3 = 0;
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
-        // 1. 5킬로그램으로 먼저 나누기
-        result5 += N / 5;
-        if (N % 5 != 0) {
-            int remain = N % 5;
-            result5 += remain / 3;
-
-            if (remain % 3 != 0) {
-                result5 = -1;
+        // 1. 반복문
+        while (N > 0) {
+            if (N % 5 == 0){
+                result += N / 5;
+                break;
             }
-        }
-
-        // 2. 3킬로그램으로 먼저 나누기
-        result3 += N / 3;
-        if (N % 3 != 0) {
-            result3 = -1;
-        }
-
-        // 3. 최소 봉지 수 구하기
-        if (result5 == -1) {
-            if (result3 == -1) {
+            if (N < 3) {
                 result = -1;
-            } else {
-                result = result3;
+                break;
             }
-        } else if (result3 == -1) {
-            result = result5;
-        } else {
-            result = Math.min(result5, result3);
+            N -= 3;
+            result++;
         }
 
         // F. 출력
