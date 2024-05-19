@@ -12,7 +12,7 @@ public class 스택수열_1874 {
     public void solution() throws NumberFormatException, IOException {
 
         // 0. 변수 선언
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
 
@@ -27,12 +27,12 @@ public class 스택수열_1874 {
             while (idx <= now) {
                 stack.add(idx);
                 idx++;
-                bw.write("+\n");
+                sb.append("+\n");
             }
 
             if (now == stack.peek()) {
                 stack.pop();
-                bw.write("-\n");
+                sb.append("-\n");
             } else {
                 flag = true;
             }
@@ -42,8 +42,7 @@ public class 스택수열_1874 {
         if (flag) {
             System.out.println("NO");
         } else {
-            bw.flush();
-            bw.close();
+            System.out.println(sb);
         }
     }
 }
