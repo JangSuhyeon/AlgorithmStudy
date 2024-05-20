@@ -10,30 +10,37 @@ public class 요세푸스문제0_11866 {
     public void solution() throws NumberFormatException, IOException {
 
         // 0. 변수 선언
+        StringBuilder sb = new StringBuilder();
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int K = sc.nextInt();
 
-        // 1. N까지 list에 저장
-        int[] A = new int[N+1];
-        for (int i = 1; i <= N; i++) {
-            A[i] = 1;
+        int k_cnt = 0; // K번째 수 확인용
+        int n_cnt = 0; // N개의 수가 모두 출력되었는지 확인 용
+        int idx = 0;   // 현재 커서
+        int[] A = new int[N];
+
+        // 1. 모든 수가 출력될 때까지 반복
+        sb.append("<");
+        while (N > n_cnt) {
+            if (A[idx] == 0) {
+                if(k_cnt == K - 1) {
+                    A[idx] = 1;
+                    sb.append(idx + 1);
+                    if (n_cnt == N - 1)sb.append("");
+                    else sb.append(", ");
+                    n_cnt++;
+                    k_cnt = 0;
+                } else {
+                    k_cnt++;
+                }
+            }
+            idx++;
+            if (idx >= N) idx = N - idx;
         }
 
-        // 3. 모두 제거될 때까지 반복하여 제거
-        int cnt = 0;
-        int idx = 1;
-        while (cnt < N) {
-            System.out.println(idx + " : " + A[idx]);
-            if (A[idx] == 1) {
-                idx++;
-            }
-            System.out.println("idx 추가 : " + idx);
-            if (idx == 3) {
-                A[idx] = 0;
-                System.out.println(idx);
-                cnt++;
-            }
-        }
+        // F. 출력
+        sb.append(">");
+        System.out.println(sb);
     }
 }
